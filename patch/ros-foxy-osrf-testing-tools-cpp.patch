@@ -1,0 +1,16 @@
+diff --git a/src/memory_tools/vendor/bombela/backward-cpp/backward.hpp b/src/memory_tools/vendor/bombela/backward-cpp/backward.hpp
+index 6efa46d..546f303 100644
+--- a/src/memory_tools/vendor/bombela/backward-cpp/backward.hpp
++++ b/src/memory_tools/vendor/bombela/backward-cpp/backward.hpp
+@@ -166,6 +166,11 @@
+ //
+ // Note that only one of the define should be set to 1 at a time.
+ //
++#undef BACKWARD_HAS_DWARF
++#undef BACKWARD_HAS_DW
++#define BACKWARD_HAS_DWARF 0
++#define BACKWARD_HAS_DW 0
++
+ #if BACKWARD_HAS_DW == 1
+ #elif BACKWARD_HAS_BFD == 1
+ #elif BACKWARD_HAS_DWARF == 1

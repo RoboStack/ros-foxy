@@ -1,0 +1,31 @@
+ros_distro: foxy
+
+# mapping for package keys
+conda_index:
+  - conda-forge.yaml
+  - packages-ignore.yaml
+
+build_number: 0
+
+skip_all_deps: false
+
+packages_skip_by_deps:
+  # - rviz
+  # - diagnostic_updater
+
+packages_remove_from_deps:
+  - stage-ros
+  - python_qt_binding
+  - joint_state_publisher_gui
+  - stage
+
+skip_existing:
+  - https://conda.anaconda.org/robostack/
+  - /home/wolfv/miniconda3/conda-bld/linux-64/repodata.json
+
+packages_select_by_deps:
+  - rosidl_generator_py
+  - builtin_interfaces
+  - std_msgs
+
+patch_dir: patch
