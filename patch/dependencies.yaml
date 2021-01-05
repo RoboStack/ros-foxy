@@ -1,0 +1,4 @@
+rcl:
+  add: ["rmw_fastrtps_cpp"]
+moveit_core:
+  add: ["pluginlib"]

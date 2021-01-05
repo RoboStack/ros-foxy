@@ -237,6 +237,8 @@ libxaw:
     unix: ['xorg-libxaw']
 libx11-dev:
   conda-forge: []
+x11-dev:
+  conda-forge: [xorg-libx11, REQUIRE_OPENGL]
 libxrandr:
   conda-forge:
     win64: []
@@ -263,23 +265,23 @@ python3-matplotlib:
 python-qt5-bindings:
   conda-forge:
     win64: [pyqt]
-    osx: [pyqt 5.12]
-    linux: [pyqt 5.12.3 py36haa643ae_3]
+    osx: [pyqt]
+    linux: [pyqt]
 python3-qt5-bindings:
   conda-forge:
     win64: [pyqt]
     osx: [pyqt 5.12]
-    linux: [pyqt 5.12.3 py36haa643ae_3]
+    linux: [pyqt 5.12]
 python3-qt5-bindings-webkit:
   conda-forge:
     win64: [pyqt]
     osx: [pyqt 5.12]
-    linux: [pyqt 5.12.3 py36haa643ae_3]
+    linux: [pyqt 5.12]
 python3-qt5-bindings-gl:
   conda-forge:
     win64: [pyqt]
     osx: [pyqt 5.12]
-    linux: [pyqt 5.12.3 py36haa643ae_3]
+    linux: [pyqt 5.12]
 python-psutil:
   conda-forge: [psutil]
 python3-psutil:
@@ -465,8 +467,15 @@ python3-autobahn:
   conda-forge: [autobahn]
 python3-twisted:
   conda-forge: [twisted]
-
 # weird stuff
 # {'rmw_cyclonedds_cpp', 'test_msgs', 'rmw_connext_cpp', 'libyaml_vendor', 'python3-pkg-resources', 'connext_cmake_module', 'rti-connext-dds-5.3.1'}
 # connext_cmake_module:
 #   conda-forge: [ros-foxy-connext-cmake-module]
+
+# {'benchmark', 'gtest_vendor', 'gmock_vendor', 'python3-dev'}
+# benchmark:
+#   conda-forge: [benchmark]
+# gtest_vendor:
+#   conda-forge: [gtest]
+# gmock_vendor:
+#   conda-forge: [gmock]
