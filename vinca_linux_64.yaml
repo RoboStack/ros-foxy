@@ -30,6 +30,7 @@ packages_select_by_deps:
   - moveit_core
   - nav2-core
   - rviz2
+  - ros_workspace
 
   # this needs libdwarf and libiberty
   # I think we need to build libdwarf first ...
