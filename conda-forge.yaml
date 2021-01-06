@@ -467,6 +467,11 @@ python3-autobahn:
   conda-forge: [autobahn]
 python3-twisted:
   conda-forge: [twisted]
+cppzmq:
+  conda-forge: [cppzmq]
+libncurses-dev:
+  conda-forge: [ncurses]
+
 # weird stuff
 # {'rmw_cyclonedds_cpp', 'test_msgs', 'rmw_connext_cpp', 'libyaml_vendor', 'python3-pkg-resources', 'connext_cmake_module', 'rti-connext-dds-5.3.1'}
 # connext_cmake_module:

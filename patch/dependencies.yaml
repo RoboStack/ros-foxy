@@ -2,3 +2,5 @@ rcl:
   add: ["rmw_fastrtps_cpp"]
 moveit_core:
   add: ["pluginlib"]
+behaviortree_cpp_v3:
+  add: ["boost", "cppzmq"]
