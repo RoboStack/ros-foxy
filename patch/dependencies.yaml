@@ -4,3 +4,5 @@ moveit_core:
   add: ["pluginlib"]
 behaviortree_cpp_v3:
   add: ["boost", "cppzmq"]
+rviz_ogre_vendor:
+  add: ["libglu-dev"]

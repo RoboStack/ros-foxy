@@ -4,6 +4,8 @@ rti-connext-dds-5.3.1:
 
 # rmw_cyclonedds_cpp:
 #   conda-forge: []
+# rviz_ogre_vendor:
+#   conda-forge: []
 rmw_opensplice_cpp:
   conda-forge: []
 # rmw_connext_cpp:

@@ -236,7 +236,7 @@ libxaw:
     win64: []
     unix: ['xorg-libxaw']
 libx11-dev:
-  conda-forge: []
+  conda-forge: [xorg-libx11, REQUIRE_OPENGL]
 x11-dev:
   conda-forge: [xorg-libx11, REQUIRE_OPENGL]
 libxrandr:
@@ -471,7 +471,10 @@ cppzmq:
   conda-forge: [cppzmq]
 libncurses-dev:
   conda-forge: [ncurses]
-
+libglu-dev:
+  conda-forge: [libglu]
+# rviz_ogre_vendor:
+#   conda-forge: [ogre 1.12]
 # weird stuff
 # {'rmw_cyclonedds_cpp', 'test_msgs', 'rmw_connext_cpp', 'libyaml_vendor', 'python3-pkg-resources', 'connext_cmake_module', 'rti-connext-dds-5.3.1'}
 # connext_cmake_module:
