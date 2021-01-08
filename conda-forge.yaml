@@ -163,7 +163,7 @@ pydocstyle:
 libxml2-utils:
   conda-forge: [libxml2]
 libcunit-dev:
-  conda-forge: []
+  conda-forge: [cunit]
 uncrustify:
   conda-forge: [uncrustify]
 python-lxml:
@@ -473,6 +473,12 @@ libncurses-dev:
   conda-forge: [ncurses]
 libglu-dev:
   conda-forge: [libglu]
+maven:
+  conda-forge: [maven]
+libzstd-dev:
+  conda-forge: [zstd]
+java:
+  conda-forge: [openjdk]
 # rviz_ogre_vendor:
 #   conda-forge: [ogre 1.12]
 # weird stuff
