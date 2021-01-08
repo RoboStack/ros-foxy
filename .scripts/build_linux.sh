@@ -5,7 +5,7 @@
 # changes to this script, consider a proposal to conda-smithy so that other feedstocks can also
 # benefit from the improvement.
 
-set -xuo pipefail
+set -xeuo pipefail
 export PYTHONUNBUFFERED=1
 export FEEDSTOCK_ROOT="${FEEDSTOCK_ROOT:-/home/conda/feedstock_root}"
 export RECIPE_ROOT="${RECIPE_ROOT:-/home/conda/recipe_root}"
@@ -50,13 +50,11 @@ conda list --show-channel-urls
 
 pwd
 
-cd ${FEEDSTOCK_ROOT}
-cp recipes/${CURRENT_BUILD_PKG_NAME}.yaml ./recipe.yaml
-# pip install -e .
-# cd examples
-# vinca
-
-boa build .
+for recipe in ${CURRENT_RECIPES[@]}; do
+	cd ${FEEDSTOCK_ROOT}/recipes/${recipe}
+	cp ${FEEDSTOCK_ROOT}/conda_build_config.yaml ./
+	boa build .
+done
 
 anaconda -t ${ANACONDA_API_TOKEN} upload /opt/conda/build_artifacts/linux-*/*.tar.bz2 --force
 # quetz-client "${QUETZ_URL}" /opt/conda/build_artifacts --force

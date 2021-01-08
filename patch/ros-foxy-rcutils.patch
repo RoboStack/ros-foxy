@@ -1,5 +1,5 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index afe0779..bbcb412 100644
+index c6b246f..15c5f8d 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -3,13 +3,13 @@ cmake_minimum_required(VERSION 3.5)
@@ -23,11 +23,22 @@ index afe0779..bbcb412 100644
  
  include(CheckLibraryExists)
  
+@@ -126,6 +126,10 @@ endif()
+ 
+ target_link_libraries(${PROJECT_NAME} ${CMAKE_DL_LIBS})
+ 
++if(UNIX AND NOT APPLE)
++    target_link_libraries(${PROJECT_NAME} rt)
++endif()
++
+ # Needed if pthread is used for thread local storage.
+ if(IOS AND IOS_SDK_VERSION LESS 10.0)
+   ament_export_libraries(pthread)
 diff --git a/include/rcutils/error_handling.h b/include/rcutils/error_handling.h
-index 9f19b83..20c0f81 100644
+index 6abe168..be09c53 100644
 --- a/include/rcutils/error_handling.h
 +++ b/include/rcutils/error_handling.h
-@@ -88,7 +88,7 @@ typedef struct rcutils_error_state_t
+@@ -89,7 +89,7 @@ typedef struct rcutils_error_state_t
  
  // make sure our math is right...
  #if __STDC_VERSION__ >= 201112L
@@ -37,7 +48,7 @@ index 9f19b83..20c0f81 100644
      RCUTILS_ERROR_STATE_MESSAGE_MAX_LENGTH +
      RCUTILS_ERROR_STATE_FILE_MAX_LENGTH +
 diff --git a/src/error_handling.c b/src/error_handling.c
-index 868a501..dba424f 100644
+index a060537..03e8e2e 100644
 --- a/src/error_handling.c
 +++ b/src/error_handling.c
 @@ -200,7 +200,7 @@ rcutils_set_error_state(
@@ -50,7 +61,7 @@ index 868a501..dba424f 100644
      "expected error state's max message length to be less than or equal to error string max");
    if (
 diff --git a/src/error_handling_helpers.h b/src/error_handling_helpers.h
-index a0e898f..e473803 100644
+index 70acb4e..67ebfc0 100644
 --- a/src/error_handling_helpers.h
 +++ b/src/error_handling_helpers.h
 @@ -145,7 +145,7 @@ __rcutils_format_error_string(
