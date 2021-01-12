@@ -24,13 +24,13 @@ skip_existing:
 
 packages_select_by_deps:
   # These work! :)
-  - rcl
-  - ros_core
-  - ros_base
-  - ros_workspace
-  # - moveit_core
-  # - nav2-core
-  # - rviz2
+  # - rcl
+  # - ros_core
+  # - ros_base
+  # - ros_workspace
+  - moveit_core
+  - nav2-core
+  - rviz2
 
   # this needs libdwarf and libiberty
   # I think we need to build libdwarf first ...
