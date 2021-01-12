@@ -488,7 +488,7 @@ java:
 
 # {'benchmark', 'gtest_vendor', 'gmock_vendor', 'python3-dev'}
 # benchmark:
-#   conda-forge: [benchmark]
+#  conda-forge: [benchmark]
 # gtest_vendor:
 #   conda-forge: [gtest]
 # gmock_vendor:
