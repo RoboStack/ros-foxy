@@ -31,8 +31,9 @@ packages_select_by_deps:
   # - moveit_core
   # - nav2-core
   # - rviz2
-  - navigation2
-  # - moveit2
+  # - navigation2
+  - run_moveit_cpp
+  - run_move_group
 
   # this needs libdwarf and libiberty
   # I think we need to build libdwarf first ...
