@@ -2,6 +2,8 @@
 
 set -x
 
+export FEEDSTOCK_ROOT=`pwd`
+
 echo -e "\n\nInstalling a fresh version of Miniforge."
 MINIFORGE_URL="https://github.com/conda-forge/miniforge/releases/latest/download"
 MINIFORGE_FILE="Miniforge3-MacOSX-x86_64.sh"
@@ -19,6 +21,8 @@ echo -e "\n\nInstalling conda-forge-ci-setup=3 and conda-build."
 conda install -n base --quiet --yes conda-forge-ci-setup=3 conda-build pip boa quetz-client \
 			  -c conda-forge/label/boa_dev -c conda-forge
 
+set -e
+
 # install boa from master
 git clone https://github.com/thesnakepit/boa
 cd boa
@@ -35,8 +39,6 @@ cd ..
 
 # echo -e "\n\nRunning the build setup script."
 # # source run_conda_forge_build_setup
-
-# set -e
 
 conda config --set anaconda_upload yes
 conda config --set show_channel_urls true
@@ -57,9 +59,11 @@ conda info
 conda config --show-sources
 conda list --show-channel-urls
 
-cp recipes/${CURRENT_BUILD_PKG_NAME}.yaml ./recipe.yaml
-
-boa build .
+for recipe in ${CURRENT_RECIPES[@]}; do
+	cd ${FEEDSTOCK_ROOT}/recipes/${recipe}
+	cp ${FEEDSTOCK_ROOT}/conda_build_config.yaml ./
+	boa build .
+done
 
 anaconda -t ${ANACONDA_API_TOKEN} upload ${CONDA_BLD_PATH}/osx-64/*.tar.bz2 --force
 # quetz-client "${QUETZ_URL}" ${CONDA_BLD_PATH} --force
