@@ -24,10 +24,11 @@ conda install -n base --quiet --yes conda-forge-ci-setup=3 conda-build pip boa q
 set -e
 
 # install boa from master
-git clone https://github.com/thesnakepit/boa
-cd boa
-pip install -e .
-cd ..
+pip install git+https://github.com/mamba-org/boa.git@master
+
+sudo rm -rf /Library/Developer/CommandLineTools
+# xcode-select --install
+
 
 # echo -e "\n\nSetting up the condarc and mangling the compiler."
 # # setup_conda_rc ./ ./recipe ./.ci_support/${CONFIG}.yaml
