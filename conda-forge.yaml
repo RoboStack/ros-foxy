@@ -163,7 +163,10 @@ pydocstyle:
 libxml2-utils:
   conda-forge: [libxml2]
 libcunit-dev:
-  conda-forge: [cunit]
+  conda-forge:
+    win64: []
+    linux: [cunit]
+    osx: [cunit]
 uncrustify:
   conda-forge: [uncrustify]
 python-lxml:
