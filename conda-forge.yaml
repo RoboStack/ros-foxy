@@ -482,6 +482,12 @@ libzstd-dev:
   conda-forge: [zstd]
 java:
   conda-forge: [openjdk]
+python3-tk:
+  conda-forge: [tkinter]
+python3-collada:
+  conda-forge: [pycollada]
+python3-pep8:
+  conda-forge: [pep8]
 # rviz_ogre_vendor:
 #   conda-forge: [ogre 1.12]
 # weird stuff

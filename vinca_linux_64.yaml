@@ -23,6 +23,11 @@ skip_existing:
   - https://conda.anaconda.org/robostack/
 
 packages_select_by_deps:
+  - webots_ros2
+  - robot_controllers
+  - control_toolbox
+  - robot_localization
+  - ros1_bridge
   # These work! :)
   # - rcl
   # - ros_core
