@@ -483,7 +483,7 @@ libzstd-dev:
 java:
   conda-forge: [openjdk]
 python3-tk:
-  conda-forge: [tkinter]
+  conda-forge: [tk]
 python3-collada:
   conda-forge: [pycollada]
 python3-pep8:
