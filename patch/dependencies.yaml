@@ -6,3 +6,5 @@ behaviortree_cpp_v3:
   add: ["boost", "cppzmq"]
 rviz_ogre_vendor:
   add: ["libglu-dev"]
+intra_process_demo:
+  add: ["REQUIRE_OPENGL"]
