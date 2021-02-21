@@ -303,6 +303,12 @@ libboost-program-options-dev:
   conda-forge:
     win64: [boost]
     unix: ['boost-cpp']
+libboost-python:
+  conda-forge: [boost]
+libboost-python-dev:
+  conda-forge: [boost]
+sdl2:
+  conda-forge: [sdl2]
 libboost-filesystem-dev:
   conda-forge: ['boost-cpp']
 libboost-regex-dev:
