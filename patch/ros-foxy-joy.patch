@@ -1,0 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 946a5ba..fb80ca4 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -17,7 +17,7 @@ find_package(sdl2_vendor REQUIRED)
+ find_package(sdl2_custom REQUIRED)
+ find_package(sensor_msgs REQUIRED)
+ 
+-include_directories(include)
++include_directories(include ${CMAKE_INSTALL_PREFIX}/include)
+ add_library(joy SHARED src/joy.cpp)
+ ament_target_dependencies(joy
+   "rclcpp_components"
