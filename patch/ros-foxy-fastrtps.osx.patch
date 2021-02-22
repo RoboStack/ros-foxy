@@ -1,0 +1,13 @@
+diff --git a/cmake/modules/FindThirdpartyBoost.cmake b/cmake/modules/FindThirdpartyBoost.cmake
+index f37a847..a621805 100644
+--- a/cmake/modules/FindThirdpartyBoost.cmake
++++ b/cmake/modules/FindThirdpartyBoost.cmake
+@@ -19,7 +19,7 @@ else() # Posix
+     set(THIRDPARTY_BOOST_LINK_LIBS ${CMAKE_THREAD_LIBS_INIT} rt)
+ endif()
+ 
+-if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
++if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang" AND NOT APPLE)
+     list(APPEND THIRDPARTY_BOOST_LINK_LIBS atomic)
+ endif()
+ 
