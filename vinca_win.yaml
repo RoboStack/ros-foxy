@@ -23,7 +23,8 @@ skip_existing:
   - https://conda.anaconda.org/robostack/
 
 packages_select_by_deps:
-  - rcl
+  - mimick_vendor
+  # - rcl
   # - ros_core
   # - ros_base
   # - ros_workspace
