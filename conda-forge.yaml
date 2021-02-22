@@ -481,7 +481,10 @@ cppzmq:
 libncurses-dev:
   conda-forge: [ncurses]
 libglu-dev:
-  conda-forge: [libglu]
+  conda-forge:
+    linux: [libglu]
+    osx: []
+    win: []
 maven:
   conda-forge: [maven]
 libzstd-dev:
