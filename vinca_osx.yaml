@@ -28,9 +28,9 @@ packages_select_by_deps:
   # - ros_core
   # - ros_base
   # - ros_workspace
-  - moveit_core
+  # - moveit_core
   - webots_ros2
-  - nav2-core
+  # - nav2-core
 
   # Ogre has problems, so RViz doesn't work.
   # - rviz2
