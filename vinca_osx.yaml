@@ -24,13 +24,13 @@ skip_existing:
 
 packages_select_by_deps:
   # Nothing works :)
-  - rcl
-  - ros_core
-  - ros_base
-  # - ros_workspace
+  # - rcl
+  # - ros_core
+  # - ros_base
+  - ros_workspace
   # - moveit_core
   # - nav2-core
-  # - rviz2
+  - rviz2
   # - navigation2
   # - run_moveit_cpp
   # - run_move_group
