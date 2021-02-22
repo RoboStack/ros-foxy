@@ -23,14 +23,17 @@ skip_existing:
   - https://conda.anaconda.org/robostack/
 
 packages_select_by_deps:
-  # Nothing works :)
+  # Working
   # - rcl
   # - ros_core
   # - ros_base
-  - ros_workspace
-  # - moveit_core
-  # - nav2-core
-  - rviz2
+  # - ros_workspace
+  - moveit_core
+  - webots_ros2
+  - nav2-core
+
+  # Ogre has problems, so RViz doesn't work.
+  # - rviz2
   # - navigation2
   # - run_moveit_cpp
   # - run_move_group
