@@ -23,10 +23,11 @@ skip_existing:
   - https://conda.anaconda.org/robostack/
 
 packages_select_by_deps:
+  - rcutils
+  # - rcl
+  # - ros_core
+  # - ros_base
   # - mimick_vendor
-  - rcl
-  - ros_core
-  - ros_base
   # - ros_workspace
   # - moveit_core
   # - nav2-core
