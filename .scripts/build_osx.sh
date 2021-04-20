@@ -24,11 +24,10 @@ conda install -n base --quiet --yes conda-forge-ci-setup=3 conda-build pip boa q
 set -e
 
 # install boa from master
-pip install git+https://github.com/mamba-org/boa.git@master
-
-sudo rm -rf /Library/Developer/CommandLineTools
-# xcode-select --install
-
+git clone https://github.com/mamba-org/boa
+cd boa
+pip install -e .
+cd ..
 
 # echo -e "\n\nSetting up the condarc and mangling the compiler."
 # # setup_conda_rc ./ ./recipe ./.ci_support/${CONFIG}.yaml
@@ -62,8 +61,7 @@ conda list --show-channel-urls
 
 for recipe in ${CURRENT_RECIPES[@]}; do
 	cd ${FEEDSTOCK_ROOT}/recipes/${recipe}
-	cp ${FEEDSTOCK_ROOT}/conda_build_config.yaml ./
-	boa build .
+	boa build . -m ${FEEDSTOCK_ROOT}/.ci_support/conda_forge_pinnings.yaml -m ${FEEDSTOCK_ROOT}/conda_build_config.yaml
 done
 
 anaconda -t ${ANACONDA_API_TOKEN} upload ${CONDA_BLD_PATH}/osx-64/*.tar.bz2 --force

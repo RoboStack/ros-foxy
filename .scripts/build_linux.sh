@@ -17,7 +17,7 @@ conda-build:
     root-dir: /opt/conda/build_artifacts
 CONDARC
 
-# This doesn't work, see e.g. https://dev.azure.com/roboforge/ros_pipelines/_build/results?buildId=188&view=logs&j=4e20d398-0572-5e54-89c7-6bdb9c00a59a&t=f5885ff8-badf-54b3-1543-35164851bdf3
+# This doesn't work, see e.g. https://dev.azure.com/robostack/ros_pipelines/_build/results?buildId=188&view=logs&j=4e20d398-0572-5e54-89c7-6bdb9c00a59a&t=f5885ff8-badf-54b3-1543-35164851bdf3
 # if grep -q libgl "recipes/${CURRENT_BUILD_PKG_NAME}.yaml"; then
 # 	sudo yum install -y install mesa-libGL-devel
 # fi
@@ -52,8 +52,7 @@ pwd
 
 for recipe in ${CURRENT_RECIPES[@]}; do
 	cd ${FEEDSTOCK_ROOT}/recipes/${recipe}
-	cp ${FEEDSTOCK_ROOT}/conda_build_config.yaml ./
-	boa build .
+	boa build . -m ${FEEDSTOCK_ROOT}/.ci_support/conda_forge_pinnings.yaml -m ${FEEDSTOCK_ROOT}/conda_build_config.yaml
 done
 
 anaconda -t ${ANACONDA_API_TOKEN} upload /opt/conda/build_artifacts/linux-*/*.tar.bz2 --force
