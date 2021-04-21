@@ -1,3 +1,8 @@
+c_compiler:
+  - vs2019                     # [win]
+cxx_compiler:
+  - vs2019                     # [win]
+
 # TODO: remove these when run_exports are added to the packages.
 pin_run_as_build:
   gazebo:
