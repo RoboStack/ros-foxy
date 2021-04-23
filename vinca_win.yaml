@@ -27,10 +27,11 @@ packages_select_by_deps:
   - ros_core
   - ros_base
   # - mimick_vendor
+  - rviz2
+
   # - ros_workspace
   # - moveit_core
   # - nav2-core
-  # - rviz2
   # - navigation2
   # - run_moveit_cpp
   # - run_move_group
