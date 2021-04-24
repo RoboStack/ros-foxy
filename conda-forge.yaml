@@ -484,7 +484,7 @@ libglu-dev:
   conda-forge:
     linux: [libglu]
     osx: []
-    win: []
+    win64: []
 maven:
   conda-forge: [maven]
 libzstd-dev:
