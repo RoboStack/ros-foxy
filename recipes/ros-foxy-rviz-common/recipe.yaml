@@ -1,0 +1,82 @@
+package:
+  name: ros-foxy-rviz-common
+  version: 8.2.2
+source:
+  git_url: https://github.com/ros2-gbp/rviz-release.git
+  git_rev: release/foxy/rviz_common/8.2.2-1
+  folder: ros-foxy-rviz-common/src/work
+
+build:
+  script:
+    sel(win): bld_ament_cmake.bat
+    sel(unix): build_ament_cmake.sh
+  number: 0
+about:
+  home: https://www.ros.org/
+  license: BSD-3-Clause
+  summary: |
+    Robot Operating System
+
+extra:
+  recipe-maintainers:
+    - ros-forge
+
+requirements:
+  build:
+    - "{{ compiler('cxx') }}"
+    - "{{ compiler('c') }}"
+    - ninja
+    - sel(unix): make
+    - sel(osx): tapi
+    - cmake
+    - sel(build_platform != target_platform): python
+    - sel(build_platform != target_platform): cross-python_{{ target_platform }}
+    - sel(build_platform != target_platform): cython
+    - sel(build_platform != target_platform): numpy
+    - sel(build_platform != target_platform): pybind11
+  host:
+    - python
+    - qt
+    - ros-foxy-ament-cmake
+    - ros-foxy-ament-cmake-cppcheck
+    - ros-foxy-ament-cmake-cpplint
+    - ros-foxy-ament-cmake-gmock
+    - ros-foxy-ament-cmake-gtest
+    - ros-foxy-ament-cmake-lint-cmake
+    - ros-foxy-ament-cmake-uncrustify
+    - ros-foxy-geometry-msgs
+    - ros-foxy-message-filters
+    - ros-foxy-pluginlib
+    - ros-foxy-rclcpp
+    - ros-foxy-resource-retriever
+    - ros-foxy-rviz-assimp-vendor
+    - ros-foxy-rviz-ogre-vendor
+    - ros-foxy-rviz-rendering
+    - ros-foxy-sensor-msgs
+    - ros-foxy-std-msgs
+    - ros-foxy-tf2
+    - ros-foxy-tf2-geometry-msgs
+    - ros-foxy-tf2-ros
+    - ros-foxy-tinyxml-vendor
+    - ros-foxy-urdf
+    - ros-foxy-yaml-cpp-vendor
+  run:
+    - python
+    - qt
+    - ros-foxy-geometry-msgs
+    - ros-foxy-message-filters
+    - ros-foxy-pluginlib
+    - ros-foxy-rclcpp
+    - ros-foxy-resource-retriever
+    - ros-foxy-rviz-assimp-vendor
+    - ros-foxy-rviz-ogre-vendor
+    - ros-foxy-rviz-rendering
+    - ros-foxy-sensor-msgs
+    - ros-foxy-std-msgs
+    - ros-foxy-tf2
+    - ros-foxy-tf2-geometry-msgs
+    - ros-foxy-tf2-ros
+    - ros-foxy-tinyxml-vendor
+    - ros-foxy-urdf
+    - ros-foxy-yaml-cpp-vendor
+    - sel(osx and x86_64): __osx >={{ MACOSX_DEPLOYMENT_TARGET|default('10.14') }}

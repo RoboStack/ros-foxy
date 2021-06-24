@@ -1,0 +1,27 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index f6c48b6c..231728bc 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -216,10 +216,21 @@ add_library(rviz_default_plugins SHARED
+   ${rviz_default_plugins_source_files}
+ )
+ 
++message(${Qt5Widgets_INCLUDE_DIRS})
++set (Qt5Widgets_INCLUDE_DIRS_CLEANED "")
++foreach(Q5DIR ${Qt5Widgets_INCLUDE_DIRS})
++  if (Q5DIR MATCHES "\/_build_env\/")
++    message("Discarding build env include dir: ${Q5DIR}")
++  else()
++    message("Adding clean dir: ${Q5DIR}")
++    list(APPEND Qt5Widgets_INCLUDE_DIRS_CLEANED ${Q5DIR})
++  endif()
++endforeach()
++
+ target_include_directories(rviz_default_plugins PUBLIC
+   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+   $<INSTALL_INTERFACE:include>
+-  ${Qt5Widgets_INCLUDE_DIRS}
++  ${Qt5Widgets_INCLUDE_DIRS_CLEANED}
+ )
+ 
+ target_link_libraries(rviz_default_plugins PUBLIC

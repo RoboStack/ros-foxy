@@ -1,0 +1,39 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index c400c07f..68747e90 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -102,11 +102,12 @@ endmacro()
+ 
+ macro(build_ogre)
+   set(extra_cmake_args)
+-  set(OGRE_CXX_FLAGS)
++  set(OGRE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -I ${CMAKE_INSTALL_PREFIX}/include")
++  set(OGRE_C_FLAGS "${CMAKE_C_FLAGS} -I ${CMAKE_INSTALL_PREFIX}/include")
+   # standard library is important for linking, but the other cxx flags are not
+-  if(CMAKE_CXX_FLAGS MATCHES "-stdlib=libc\\+\\+")
+-    set(OGRE_CXX_FLAGS "${OGRE_CXX_FLAGS} -stdlib=libc++")
+-  endif()
++  # if(CMAKE_CXX_FLAGS MATCHES "-stdlib=libc\\+\\+")
++  #   set(OGRE_CXX_FLAGS "${OGRE_CXX_FLAGS} -stdlib=libc++")
++  # endif()
+ 
+   if(DEFINED CMAKE_BUILD_TYPE)
+     list(APPEND extra_cmake_args -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE})
+@@ -121,7 +122,8 @@ macro(build_ogre)
+   else()  # Linux
+     # include Clang -Wno-everything to disable warnings in that build. GCC doesn't mind it
+     set(OGRE_CXX_FLAGS "${OGRE_CXX_FLAGS} -std=c++14 -w -Wno-everything")
+-    list(APPEND extra_cmake_args "-DCMAKE_C_FLAGS=-w")
++    set(OGRE_C_FLAGS "${OGRE_C_FLAGS} -w")
++    list(APPEND extra_cmake_args "-DCMAKE_C_FLAGS=${OGRE_C_FLAGS}")
+   endif()
+   list(APPEND extra_cmake_args "-DOGRE_BUILD_RENDERSYSTEM_GL:BOOL=TRUE")
+   list(APPEND extra_cmake_args "-DOGRE_BUILD_RENDERSYSTEM_D3D11:BOOL=OFF")
+@@ -159,6 +161,7 @@ macro(build_ogre)
+     LOG_CONFIGURE ${should_log}
+     LOG_BUILD ${should_log}
+     CMAKE_ARGS
++      -DCMAKE_PREFIX_PATH=${CMAKE_INSTALL_PREFIX}
+       -DOGRE_STATIC:BOOL=OFF
+       -DOGRE_DEPENDENCIES_DIR=${CMAKE_CURRENT_BINARY_DIR}/ogredeps
+       -DOGRE_INSTALL_PDB:BOOL=OFF
