@@ -1,0 +1,16 @@
+diff --git a/tf2_py/CMakeLists.txt b/tf2_py/CMakeLists.txt
+index 4312925..5565897 100644
+--- a/tf2_py/CMakeLists.txt
++++ b/tf2_py/CMakeLists.txt
+@@ -57,6 +57,11 @@ if(WIN32)
+   set_properties(${PROJECT_NAME} "_RELWITHDEBINFO")
+ endif()
+ 
++if(APPLE)
++  set_target_properties(${_targetname} PROPERTIES
++    LINK_FLAGS "-undefined dynamic_lookup")
++endif()
++
+ ament_target_dependencies(${PROJECT_NAME}
+   "geometry_msgs"
+   "tf2"
